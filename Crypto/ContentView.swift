@@ -8,12 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-    }
+        
+        NavigationView{
+            
+            NavigationLink(destination: Text("Hello")){
+                
+                Text("Go to Hello")
+                    .padding()
+            }
+           .navigationTitle(Text("DashBoard"))
+        }
+    
+    
 }
 
+}
+    
+    
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
