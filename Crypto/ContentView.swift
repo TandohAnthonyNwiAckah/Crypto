@@ -10,32 +10,33 @@ import SwiftUI
 
 struct Coin:Hashable {
     let id,name,price,icon:String
+    let lineCoordinates: [CGFloat]
 }
 
 struct ContentView: View {
     
     
     var rates : [Coin] = [
-    Coin(id: "BTC", name: "BitCoin", price: "9793.31", icon: "bitcoin"),
+    Coin(id: "BTC", name: "BitCoin", price: "9793.31", icon: "bitcoin",lineCoordinates: [1000,4000,6000,2000,5000,9000,3000,6000,14000,7000]),
         
-    Coin(id: "LTC", name: "Litecoin", price: "93.08", icon: "litecoin"),
+    Coin(id: "LTC", name: "Litecoin", price: "93.08", icon: "litecoin",lineCoordinates: [6000,400,6000,2000,5000,9000,3000,600,1000,700]),
         
-    Coin(id: "XIP", name: "Ripple", price: "0.98", icon: "ripple"),
+    Coin(id: "XIP", name: "Ripple", price: "0.98", icon: "ripple",lineCoordinates: [400,4000,600,2000,5000,9000,3000,6000,1000,7000]),
         
-    Coin(id: "TRX", name: "Tron", price: "23.10", icon: "tron"),
+    Coin(id: "TRX", name: "Tron", price: "23.10", icon: "tron",lineCoordinates: [100,4000,6000,200,5000,9000,3000,6000,1000,700]),
         
-    Coin(id: "ETH", name: "Ethereum", price: "200.98", icon: "ethereum")
+    Coin(id: "ETH", name: "Ethereum", price: "200.98", icon: "ethereum",lineCoordinates: [800,4000,6000,2000,500,9000,3000,6000,100,7000])
         
     ]
     
     
     var wallets : [Coin] = [
 
-    Coin(id: "LTC", name: "Litecoin", price: "293.08", icon: "litecoin"),
+    Coin(id: "LTC", name: "Litecoin", price: "293.08", icon: "litecoin",lineCoordinates: [900,4000,6000,2000,5000,9000,3000,6000,1000,7000]),
         
-    Coin(id: "XIP", name: "Ripple", price: "10.98", icon: "ripple"),
+    Coin(id: "XIP", name: "Ripple", price: "10.98", icon: "ripple",lineCoordinates: [10,4000,6000,2000,5000,900,3000,6000,1000,7000]),
         
-    Coin(id: "ETH", name: "Ethereum", price: "400.98", icon: "ethereum")
+    Coin(id: "ETH", name: "Ethereum", price: "400.98", icon: "ethereum",lineCoordinates: [800,4000,6000,200,5000,9000,3000,6000,1000,7000])
         
     ]
     
@@ -108,7 +109,7 @@ struct ContentView: View {
                 
                         ForEach(rates,id: \.self) { coin in
                            
-                            NavigationLink(destination:Text("Rating Details")){
+                            NavigationLink(destination:GraphCoinView(lineCoordinates: coin.lineCoordinates, title: coin.name)){
                             
                             HStack{
                             
