@@ -15,6 +15,8 @@
 		04644C4D255AACCC005B7F3E /* CryptoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04644C4C255AACCC005B7F3E /* CryptoUITests.swift */; };
 		04D76F9A2567FACC00667920 /* BadgeSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D76F992567FACC00667920 /* BadgeSymbol.swift */; };
 		04D76FA22567FB9200667920 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D76FA12567FB9200667920 /* ColorConstants.swift */; };
+		04D76FAA256804CC00667920 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D76FA9256804CC00667920 /* LineChart.swift */; };
+		04D76FAF2568095E00667920 /* LineChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D76FAE2568095E00667920 /* LineChartController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		04644C4E255AACCC005B7F3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04D76F992567FACC00667920 /* BadgeSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeSymbol.swift; sourceTree = "<group>"; };
 		04D76FA12567FB9200667920 /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
+		04D76FA9256804CC00667920 /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
+		04D76FAE2568095E00667920 /* LineChartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +160,8 @@
 			children = (
 				04D76F992567FACC00667920 /* BadgeSymbol.swift */,
 				04D76FA12567FB9200667920 /* ColorConstants.swift */,
+				04D76FA9256804CC00667920 /* LineChart.swift */,
+				04D76FAE2568095E00667920 /* LineChartController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -291,8 +297,10 @@
 			files = (
 				04644C32255AACC7005B7F3E /* ContentView.swift in Sources */,
 				04644C30255AACC7005B7F3E /* CryptoApp.swift in Sources */,
+				04D76FAF2568095E00667920 /* LineChartController.swift in Sources */,
 				04D76F9A2567FACC00667920 /* BadgeSymbol.swift in Sources */,
 				04D76FA22567FB9200667920 /* ColorConstants.swift in Sources */,
+				04D76FAA256804CC00667920 /* LineChart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

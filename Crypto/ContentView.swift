@@ -40,11 +40,7 @@ struct ContentView: View {
     ]
     
     
-    
-    
-    
-    
-    @State var is360 = false
+   @State var is360 = false
     
     var body: some View {
         
@@ -67,20 +63,25 @@ struct ContentView: View {
 
                 }
                 
-                
-
-            
-            Text("Your crypto balance")
-                .padding()
-            
-                Text("$3,133.7")
-                    .font(.largeTitle)
-                    .fontWeight(.heavy)
+                Text("Your crypto balance")
                     .padding()
-            
-               
+                
+                    Text("$3,133.7")
+                        .font(.largeTitle)
+                        .fontWeight(.heavy)
+                        .padding()
+                
+                LineChartController(lineCoordinates:[3,2,6],inline:true)
+                    .frame(
+                    minWidth: 0,
+                    maxWidth:.infinity,
+                    minHeight:0,
+                    maxHeight:150
+
+                ).padding()
+
+        
                 List{
-                    
                     
                     Section(header: Text("My Wallets")){
                 
@@ -102,7 +103,6 @@ struct ContentView: View {
                                 
                         }
                     }
-                    
                     
                     Section(header: Text("Current Prices")){
                 
