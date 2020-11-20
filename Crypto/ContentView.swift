@@ -12,7 +12,6 @@ struct Coin:Hashable {
     let id,name,price,icon:String
 }
 
-
 struct ContentView: View {
     
     
@@ -47,13 +46,24 @@ struct ContentView: View {
             
                
                 List{
-                    
                     Section(header: Text("Current Prices")){
+                
+                        ForEach(rates,id: \.self) { coin in
+                            
+                            HStack{
+                            
+                            Image(coin.icon)
+                                .resizable()
+                                .frame(width:40,height:40)
+                            
+                               Text("\(coin.name) (\(coin.id))")
+                                
+                                Spacer()
+                                
+                                Text("$\(coin.price)").fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                         
-                        ForEach(rates,id: \.self) {
-                            coin in
-                            Text(coin.name)
-                        
+                            }
+                                
                         }
                     }
                 }
@@ -78,8 +88,7 @@ struct ContentView: View {
 }
 
 }
-    
-    
+        
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
