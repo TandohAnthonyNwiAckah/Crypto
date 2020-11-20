@@ -8,56 +8,6 @@
 import SwiftUI
 
 
-
-struct BadgeSymbol:View {
-    
-    
-    static let symbolColor = Color(red:79.0/255,green:79.0/255,blue:191.0/255)
-    
-    var body: some View{
-        
-        GeometryReader { geometry in
-            
-            Path { path in
-                
-                let width = min(geometry.size.width,geometry.size.height)
-                let height = width * 0.75
-                let spacing = width*0.028
-                let middle = width/2
-                let topWidth = 0.226 * width
-                let topHeight = 0.488 * height
-                
-                path.addLines([
-                    CGPoint(x:middle,y: spacing),
-                    CGPoint(x:middle-topWidth,y: topHeight-spacing),
-                    CGPoint(x: middle, y: topHeight / 2 + spacing),
-                    CGPoint(x: middle+topWidth, y: topHeight-spacing),
-                    CGPoint(x: middle, y:spacing)
-                ])
-                
-                path.move(to: CGPoint(x:middle,y:topHeight / 2 + spacing * 3))
-                
-                path.addLines([
-                
-                    CGPoint(x:middle-topWidth,y: topHeight+spacing),
-                    
-                    CGPoint(x: spacing, y:height - spacing),
-                    
-                    CGPoint(x: width-spacing, y:height - spacing),
-                    
-                    CGPoint(x: middle + topWidth, y:topHeight + spacing),
-                    
-                    CGPoint(x: middle, y:topHeight / 2 +  spacing * 3 ),
-                ])
-            }
-            .fill(Self.symbolColor)
-            
-        }
-    }
-}
-
-
-
 struct Coin:Hashable {
     let id,name,price,icon:String
 }
@@ -77,6 +27,22 @@ struct ContentView: View {
     Coin(id: "ETH", name: "Ethereum", price: "200.98", icon: "ethereum")
         
     ]
+    
+    
+    var wallets : [Coin] = [
+
+    Coin(id: "LTC", name: "Litecoin", price: "293.08", icon: "litecoin"),
+        
+    Coin(id: "XIP", name: "Ripple", price: "10.98", icon: "ripple"),
+        
+    Coin(id: "ETH", name: "Ethereum", price: "400.98", icon: "ethereum")
+        
+    ]
+    
+    
+    
+    
+    
     
     @State var is360 = false
     
@@ -114,9 +80,11 @@ struct ContentView: View {
             
                
                 List{
-                    Section(header: Text("Current Prices")){
+                    
+                    
+                    Section(header: Text("My Wallets")){
                 
-                        ForEach(rates,id: \.self) { coin in
+                        ForEach(wallets,id: \.self) { coin in
                             
                             HStack{
                             
@@ -134,6 +102,36 @@ struct ContentView: View {
                                 
                         }
                     }
+                    
+                    
+                    Section(header: Text("Current Prices")){
+                
+                        ForEach(rates,id: \.self) { coin in
+                           
+                            NavigationLink(destination:Text("Rating Details")){
+                            
+                            HStack{
+                            
+                            Image(coin.icon)
+                                .resizable()
+                                .frame(width:40,height:40)
+                            
+                               Text("\(coin.name) (\(coin.id))")
+                                
+                                Spacer()
+                                
+                                Text("$\(coin.price)").fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        
+                            }
+                            
+                            }
+                        }
+                    }
+                    
+                    
+                    
+                    
+                    
                 }
                 
             }

@@ -13,6 +13,8 @@
 		04644C37255AACCC005B7F3E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04644C36255AACCC005B7F3E /* Preview Assets.xcassets */; };
 		04644C42255AACCC005B7F3E /* CryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04644C41255AACCC005B7F3E /* CryptoTests.swift */; };
 		04644C4D255AACCC005B7F3E /* CryptoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04644C4C255AACCC005B7F3E /* CryptoUITests.swift */; };
+		04D76F9A2567FACC00667920 /* BadgeSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D76F992567FACC00667920 /* BadgeSymbol.swift */; };
+		04D76FA22567FB9200667920 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D76FA12567FB9200667920 /* ColorConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 		04644C48255AACCC005B7F3E /* CryptoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04644C4C255AACCC005B7F3E /* CryptoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUITests.swift; sourceTree = "<group>"; };
 		04644C4E255AACCC005B7F3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04D76F992567FACC00667920 /* BadgeSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeSymbol.swift; sourceTree = "<group>"; };
+		04D76FA12567FB9200667920 /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 		04644C2E255AACC7005B7F3E /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
+				04D76F982567FA8700667920 /* Utils */,
 				04D76F942567E03F00667920 /* Views */,
 				04D76F932567E00A00667920 /* App */,
 			);
@@ -144,6 +149,15 @@
 				04644C31255AACC7005B7F3E /* ContentView.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		04D76F982567FA8700667920 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				04D76F992567FACC00667920 /* BadgeSymbol.swift */,
+				04D76FA12567FB9200667920 /* ColorConstants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +291,8 @@
 			files = (
 				04644C32255AACC7005B7F3E /* ContentView.swift in Sources */,
 				04644C30255AACC7005B7F3E /* CryptoApp.swift in Sources */,
+				04D76F9A2567FACC00667920 /* BadgeSymbol.swift in Sources */,
+				04D76FA22567FB9200667920 /* ColorConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
