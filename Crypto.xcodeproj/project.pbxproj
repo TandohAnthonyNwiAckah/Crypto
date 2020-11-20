@@ -95,11 +95,8 @@
 		04644C2E255AACC7005B7F3E /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
-				04644C2F255AACC7005B7F3E /* CryptoApp.swift */,
-				04644C31255AACC7005B7F3E /* ContentView.swift */,
-				04644C33255AACCC005B7F3E /* Assets.xcassets */,
-				04644C38255AACCC005B7F3E /* Info.plist */,
-				04644C35255AACCC005B7F3E /* Preview Content */,
+				04D76F942567E03F00667920 /* Views */,
+				04D76F932567E00A00667920 /* App */,
 			);
 			path = Crypto;
 			sourceTree = "<group>";
@@ -128,6 +125,25 @@
 				04644C4E255AACCC005B7F3E /* Info.plist */,
 			);
 			path = CryptoUITests;
+			sourceTree = "<group>";
+		};
+		04D76F932567E00A00667920 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				04644C35255AACCC005B7F3E /* Preview Content */,
+				04644C2F255AACC7005B7F3E /* CryptoApp.swift */,
+				04644C38255AACCC005B7F3E /* Info.plist */,
+				04644C33255AACCC005B7F3E /* Assets.xcassets */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		04D76F942567E03F00667920 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				04644C31255AACC7005B7F3E /* ContentView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

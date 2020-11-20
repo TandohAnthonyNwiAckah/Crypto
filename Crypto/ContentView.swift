@@ -50,7 +50,7 @@ struct ContentView: View {
                     
                     Section(header: Text("Current Prices")){
                         
-                        ForEach(rates,id: \.self){
+                        ForEach(rates,id: \.self) {
                             coin in
                             Text(coin.name)
                         
