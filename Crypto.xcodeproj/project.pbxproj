@@ -18,6 +18,9 @@
 		04D76FAA256804CC00667920 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D76FA9256804CC00667920 /* LineChart.swift */; };
 		04D76FAF2568095E00667920 /* LineChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D76FAE2568095E00667920 /* LineChartController.swift */; };
 		04D76FBA2568180A00667920 /* GraphCoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D76FB92568180A00667920 /* GraphCoinView.swift */; };
+		04D76FBF256840B900667920 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D76FBE256840B900667920 /* LoginView.swift */; };
+		04D76FC82568523E00667920 /* HttpAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D76FC72568523E00667920 /* HttpAuth.swift */; };
+		04D76FD0256853D800667920 /* Cons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D76FCF256853D800667920 /* Cons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,9 @@
 		04D76FA9256804CC00667920 /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		04D76FAE2568095E00667920 /* LineChartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartController.swift; sourceTree = "<group>"; };
 		04D76FB92568180A00667920 /* GraphCoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphCoinView.swift; sourceTree = "<group>"; };
+		04D76FBE256840B900667920 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		04D76FC72568523E00667920 /* HttpAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpAuth.swift; sourceTree = "<group>"; };
+		04D76FCF256853D800667920 /* Cons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +111,10 @@
 		04644C2E255AACC7005B7F3E /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
+				04D76FC6256851D800667920 /* Network */,
+				04D76F932567E00A00667920 /* App */,
 				04D76F982567FA8700667920 /* Utils */,
 				04D76F942567E03F00667920 /* Views */,
-				04D76F932567E00A00667920 /* App */,
 			);
 			path = Crypto;
 			sourceTree = "<group>";
@@ -154,6 +161,7 @@
 			children = (
 				04644C31255AACC7005B7F3E /* ContentView.swift */,
 				04D76FB92568180A00667920 /* GraphCoinView.swift */,
+				04D76FBE256840B900667920 /* LoginView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -165,8 +173,17 @@
 				04D76FA12567FB9200667920 /* ColorConstants.swift */,
 				04D76FA9256804CC00667920 /* LineChart.swift */,
 				04D76FAE2568095E00667920 /* LineChartController.swift */,
+				04D76FCF256853D800667920 /* Cons.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		04D76FC6256851D800667920 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				04D76FC72568523E00667920 /* HttpAuth.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,11 +316,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				04644C32255AACC7005B7F3E /* ContentView.swift in Sources */,
+				04D76FC82568523E00667920 /* HttpAuth.swift in Sources */,
 				04644C30255AACC7005B7F3E /* CryptoApp.swift in Sources */,
 				04D76FAF2568095E00667920 /* LineChartController.swift in Sources */,
 				04D76F9A2567FACC00667920 /* BadgeSymbol.swift in Sources */,
 				04D76FBA2568180A00667920 /* GraphCoinView.swift in Sources */,
 				04D76FA22567FB9200667920 /* ColorConstants.swift in Sources */,
+				04D76FBF256840B900667920 /* LoginView.swift in Sources */,
+				04D76FD0256853D800667920 /* Cons.swift in Sources */,
 				04D76FAA256804CC00667920 /* LineChart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
