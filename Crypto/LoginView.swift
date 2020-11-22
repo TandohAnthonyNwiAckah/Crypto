@@ -11,8 +11,10 @@ struct LoginView : View {
     
     @State private var username: String = ""
     @State private var password: String = ""
-    @Binding var manager: HttpAuth
     
+    
+//    @Binding var manager: HttpAuth
+    var manager: HttpAuth
     
     var body: some View {
         

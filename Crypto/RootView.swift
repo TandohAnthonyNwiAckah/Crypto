@@ -10,14 +10,15 @@ import SwiftUI
 
 struct RootView: View {
 
-    @State private var manager = HttpAuth()
+    @StateObject var manager = HttpAuth()
 
     var body: some View {
+        
         VStack {
             if manager.authenticated {
                 ContentView()
             } else {
-                LoginView(manager: $manager)
+                LoginView(manager: manager)
             }
         }
     }

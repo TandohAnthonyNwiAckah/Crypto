@@ -4,31 +4,28 @@
 //
 //  Created by Tanacom on 11/20/20.
 //
-
 import SwiftUI
 import Combine
 
 
 struct ServerMessage: Decodable {
-    
     let message: String
+    let status:Bool
     
 }
 
 //BindableObject has been renamed to ObservableObject.
-
-class HttpAuth:ObservableObject {
+class HttpAuth: ObservableObject {
     
-    var didChange = PassthroughSubject<HttpAuth, Never>()
+    @Published var authenticated = false
     
-    var authenticated = false {
-        didSet {
-            didChange.send(self)
-        }
+    func setLoggedIn(status: Bool) {
+        self.authenticated = status
     }
     
-
     func checkDetails(username: String, password: String) {
+        
+        print("Button Clicked !!")
         
         guard let url = URL(string:Cons.API)
         
@@ -38,8 +35,9 @@ class HttpAuth:ObservableObject {
         
         let postData = parameters.queryString.data(using: .utf8)
         
-        var request = URLRequest(url: url)
+        let semaphore = DispatchSemaphore (value: 0)
         
+        var request = URLRequest(url: url, timeoutInterval: Double.infinity)
         request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         request.httpBody = postData
@@ -50,28 +48,35 @@ class HttpAuth:ObservableObject {
                 return
             }
            
-            
-            
             if let decodedResponse = try? JSONDecoder().decode(ServerMessage.self, from: data) {
+               
                 print(decodedResponse)
                 
-                if decodedResponse.message == "ok" {
+                if decodedResponse.status == true {
+                    
                     DispatchQueue.main.async {
-                        self.authenticated = true
+                        self.setLoggedIn(status: true)
+                        print(decodedResponse.status)
+                        print(decodedResponse.message)
                     }
                 }
+                else{
+                    print(decodedResponse.status)
+                    print(decodedResponse.message)
+                    
+                }
+                
                 
                 return
             }
             
+            semaphore.signal()
         }
         
         task.resume()
-        
     }
     
 }
-
 
 extension Dictionary {
     var queryString: String {
@@ -81,3 +86,7 @@ extension Dictionary {
         return output
     }
 }
+
+
+
+
