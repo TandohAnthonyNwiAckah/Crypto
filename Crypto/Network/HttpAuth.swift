@@ -27,8 +27,7 @@ class HttpAuth:ObservableObject {
         }
     }
     
-    
-    
+
     func checkDetails(username: String, password: String) {
         
         guard let url = URL(string:Cons.API)
@@ -40,8 +39,8 @@ class HttpAuth:ObservableObject {
         let postData = parameters.queryString.data(using: .utf8)
         
         var request = URLRequest(url: url)
-        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         request.httpBody = postData
         
@@ -57,7 +56,6 @@ class HttpAuth:ObservableObject {
                 print(decodedResponse)
                 
                 if decodedResponse.message == "ok" {
-                    
                     DispatchQueue.main.async {
                         self.authenticated = true
                     }
@@ -73,6 +71,7 @@ class HttpAuth:ObservableObject {
     }
     
 }
+
 
 extension Dictionary {
     var queryString: String {

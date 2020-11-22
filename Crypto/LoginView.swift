@@ -7,22 +7,6 @@
 
 import SwiftUI
 
-struct RootView: View {
-
-    @State private var manager = HttpAuth()
-
-    var body: some View {
-        VStack {
-            if manager.authenticated {
-                ContentView()
-            } else {
-                LoginView(manager: $manager)
-            }
-        }
-    }
-}
-
-
 struct LoginView : View {
     
     @State private var username: String = ""
@@ -35,9 +19,9 @@ struct LoginView : View {
         NavigationView {
             
             Form {
-                TextField("Your username", text: $username)
+                TextField(Cons.USERNAME, text: $username)
                 
-                SecureField("Your Password", text: $password)                
+                SecureField(Cons.PASSWORD, text: $password)
         
                 HStack {
                     
@@ -46,11 +30,11 @@ struct LoginView : View {
                     Button(action: {
                         self.manager.checkDetails(username: self.username, password: self.password)
                     }) {
-                        Text("Login")
+                        Text(Cons.LOGIN)
                             .foregroundColor(Color.white)
                             .padding([.trailing, .leading], 20)
                             .padding([.top, .bottom], 15)
-                            .background(Color.red)
+                            .background(Color.blue)
                             .cornerRadius(10)
                        
             
@@ -58,7 +42,7 @@ struct LoginView : View {
                     Spacer()
                 }
                 
-            }.navigationBarTitle(Text("Crypto"))
+            }.navigationBarTitle(Text(Cons.APPNAME))
             
         }
     }

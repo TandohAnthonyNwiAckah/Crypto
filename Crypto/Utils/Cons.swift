@@ -9,8 +9,11 @@ import SwiftUI
 
 
 struct Cons {
-
-static let API =  "https://demo.tanacom.io/api.php"
+    static let APPNAME =  "Crypto App"
+    static let LOGIN =  "Login"
+    static let USERNAME =  "Your username"
+    static let PASSWORD =  "Your Password"
+    static let API =  "https://demo.tanacom.io/api.php"
 
 }
     

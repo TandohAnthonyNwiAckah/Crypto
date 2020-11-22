@@ -13,6 +13,7 @@
 		04644C37255AACCC005B7F3E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04644C36255AACCC005B7F3E /* Preview Assets.xcassets */; };
 		04644C42255AACCC005B7F3E /* CryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04644C41255AACCC005B7F3E /* CryptoTests.swift */; };
 		04644C4D255AACCC005B7F3E /* CryptoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04644C4C255AACCC005B7F3E /* CryptoUITests.swift */; };
+		04A3E147256A6AF8005EC9AD /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A3E146256A6AF8005EC9AD /* RootView.swift */; };
 		04D76F9A2567FACC00667920 /* BadgeSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D76F992567FACC00667920 /* BadgeSymbol.swift */; };
 		04D76FA22567FB9200667920 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D76FA12567FB9200667920 /* ColorConstants.swift */; };
 		04D76FAA256804CC00667920 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D76FA9256804CC00667920 /* LineChart.swift */; };
@@ -53,6 +54,7 @@
 		04644C48255AACCC005B7F3E /* CryptoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04644C4C255AACCC005B7F3E /* CryptoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUITests.swift; sourceTree = "<group>"; };
 		04644C4E255AACCC005B7F3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04A3E146256A6AF8005EC9AD /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		04D76F992567FACC00667920 /* BadgeSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeSymbol.swift; sourceTree = "<group>"; };
 		04D76FA12567FB9200667920 /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 		04D76FA9256804CC00667920 /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				04644C31255AACC7005B7F3E /* ContentView.swift */,
 				04D76FB92568180A00667920 /* GraphCoinView.swift */,
 				04D76FBE256840B900667920 /* LoginView.swift */,
+				04A3E146256A6AF8005EC9AD /* RootView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				04D76FBF256840B900667920 /* LoginView.swift in Sources */,
 				04D76FD0256853D800667920 /* Cons.swift in Sources */,
 				04D76FAA256804CC00667920 /* LineChart.swift in Sources */,
+				04A3E147256A6AF8005EC9AD /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
