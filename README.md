@@ -25,11 +25,13 @@ if(isset($_POST['username']) && isset($_POST['password']))
     $password = $_POST['password'];
 
         if ($username == "admin" && $password == "admin") {
-            $response['message'] = "ok";
+            $response['status'] = true;
+            $response['message'] = "Login successfully";
             echo json_encode($response);
         } 
         else {
-            $response['message'] = "no";
+            $response['status'] = false;
+            $response['message'] = "Incorrect credentials";
             echo json_encode($response);
         }
 } 
