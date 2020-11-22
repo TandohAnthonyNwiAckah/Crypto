@@ -17,17 +17,14 @@ struct ServerMessage: Decodable {
 
 //BindableObject has been renamed to ObservableObject.
 
-class HttpAuth:ObservableObject {
+class HttpAuth: ObservableObject {
     
-    var didChange = PassthroughSubject<HttpAuth, Never>()
     
-    var authenticated = false {
-        didSet {
-            didChange.send(self)
-        }
+    @Published var authenticated = false
+    
+    func setLoggedIn(status: Bool) {
+        self.authenticated = status
     }
-    
-    
     
     func checkDetails(username: String, password: String) {
         
@@ -39,7 +36,9 @@ class HttpAuth:ObservableObject {
         
         let postData = parameters.queryString.data(using: .utf8)
         
-        var request = URLRequest(url: url)
+        let semaphore = DispatchSemaphore (value: 0)
+        
+        var request = URLRequest(url: url, timeoutInterval: Double.infinity)
         request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         
         request.httpMethod = "POST"
@@ -59,17 +58,18 @@ class HttpAuth:ObservableObject {
                 if decodedResponse.message == "ok" {
                     
                     DispatchQueue.main.async {
-                        self.authenticated = true
+                        self.setLoggedIn(status: true)
+                        print("Authenticated")
                     }
                 }
                 
                 return
             }
             
+            semaphore.signal()
         }
         
         task.resume()
-        
     }
     
 }

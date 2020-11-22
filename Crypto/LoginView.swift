@@ -7,37 +7,19 @@
 
 import SwiftUI
 
-struct RootView: View {
-
-    @State private var manager = HttpAuth()
-
-    var body: some View {
-        VStack {
-            if manager.authenticated {
-                ContentView()
-            } else {
-                LoginView(manager: $manager)
-            }
-        }
-    }
-}
-
-
-struct LoginView : View {
-    
+struct LoginView: View {
     @State private var username: String = ""
     @State private var password: String = ""
-    @Binding var manager: HttpAuth
-    
+    var manager: HttpAuth
     
     var body: some View {
-        
         NavigationView {
             
             Form {
                 TextField("Your username", text: $username)
+                    .textCase(.lowercase)
                 
-                SecureField("Your Password", text: $password)                
+                SecureField("Your Password", text: $password)
         
                 HStack {
                     
@@ -52,7 +34,7 @@ struct LoginView : View {
                             .padding([.top, .bottom], 15)
                             .background(Color.red)
                             .cornerRadius(10)
-                       
+                            
             
                     }
                     Spacer()
@@ -60,6 +42,21 @@ struct LoginView : View {
                 
             }.navigationBarTitle(Text("Crypto"))
             
+        }
+    }
+}
+
+
+struct RootView : View {
+ 
+    @StateObject var manager = HttpAuth()
+    
+    var body: some View {
+        
+        if manager.authenticated {
+            ContentView()
+        }else {
+            LoginView(manager: manager)
         }
     }
 }
