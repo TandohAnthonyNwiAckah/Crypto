@@ -12,7 +12,7 @@ import Combine
 struct ServerMessage: Decodable {
     
     let message: String
-
+    
 }
 
 //BindableObject has been renamed to ObservableObject.
@@ -20,75 +20,65 @@ struct ServerMessage: Decodable {
 class HttpAuth:ObservableObject {
     
     var didChange = PassthroughSubject<HttpAuth, Never>()
-
+    
     var authenticated = false {
-    didSet {
-        didChange.send(self)
+        didSet {
+            didChange.send(self)
+        }
     }
-}
-
-
-
-func checkDetails(username: String, password: String) {
+    
+    
+    
+    func checkDetails(username: String, password: String) {
         
         guard let url = URL(string:Cons.API)
         
         else { return }
-
-        let body = ["username": username, "password": password]
-
-        let finalBody = try! JSONSerialization.data(withJSONObject: body)
-
+        
+        let parameters = ["username": username, "password": password]
+        
+        let postData = parameters.queryString.data(using: .utf8)
+        
         var request = URLRequest(url: url)
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        
         request.httpMethod = "POST"
-        request.httpBody = finalBody
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
-    
-             print(request)
-
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
+        request.httpBody = postData
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else {
+                print(String(describing: error))
+                return
+            }
+           
             
-            guard let data = data
-            else { return }
             
-       
-            
-//            do {
-
-             
-                let decoder = JSONDecoder()
-                let finalData  = try! decoder.decode(ServerMessage.self, from: data)
+            if let decodedResponse = try? JSONDecoder().decode(ServerMessage.self, from: data) {
+                print(decodedResponse)
                 
-                
-                print(finalData)
-                
-                if finalData.message == "ok" {
-                    
+                if decodedResponse.message == "ok" {
                     
                     DispatchQueue.main.async {
                         self.authenticated = true
                     }
                 }
-
-
-//            }
+                
+                return
+            }
             
-//            catch  {
-//                print(error)
-//            }
-//
-
-            
-            
-//
-//            let finalData = try! JSONDecoder().decode(ServerMessage.self, from: data)
-
-//           print(finalData)
-          
-    
-        }.resume()
-    
+        }
+        
+        task.resume()
+        
     }
     
+}
+
+extension Dictionary {
+    var queryString: String {
+        var output: String = ""
+        forEach({ output += "\($0.key)=\($0.value)&" })
+        output = String(output.dropLast())
+        return output
+    }
 }
